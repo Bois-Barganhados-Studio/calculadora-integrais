@@ -15,24 +15,17 @@ const rectArea = (b, a) => {
 // 0 -> left
 // 1 -> right
 const riemann = (interval = interval, n, type = 0) => {
+    
     const distance = interval.end - interval.start
-
-    const rects = Array.from({ length: n }, (v, i) => {
-        const width = distance / n
-        const x = type === 1 ? width * (i + 1) : width * i
-
-        return {
-            x,
-            width,
-            height: equation(x)
-        }
-    })
-
+    
     let sum = 0
-
-    rects.forEach((rect) => {
-        sum += rectArea(rect.width, rect.height)
-    })
-
+    
+    for(let i = 0;i<n;i++){
+          const width = distance / n
+          const x = type === 1 ? width * (i + 1) : width * i
+          const height = equation(x)
+          sum += rectArea(width,height)
+    }
+    
     return sum
 }
