@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Dependency -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="src/mathquill-0.10.1/mathquill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@scicave/math-latex-parser/lib/bundle.js"></script>
+    <link rel="stylesheet" href="src/mathquill-0.10.1/mathquill.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+
+    <!-- JS -->
+    <script src="script.js" type="module" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <p><span id="input-wrapper">f(x)=</span><span id="input"></span></p> -->
+    <label for="equation">Função</label>
+    <input type="text" name="equation" id="equation" />
+    <label for="n">N</label>
+    <input type="number" name="n" id="n" value="7" />
+    <div>
+      <label for="interval0">Intervalo</label>
+      <input type="number" name="interval0" id="interval0" value="-5" />
+      <input type="number" name="interval1" id="interval1" value="5" />
+    </div>
+    <div id="chart">
+      <canvas id="graph-line"></canvas>
+      <canvas id="graph-bar"></canvas>
+    </div>
+  </body>
+</html>
