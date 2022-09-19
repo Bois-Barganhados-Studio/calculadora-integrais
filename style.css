@@ -77,3 +77,36 @@ body {
 .btn {
   border-radius: 500px;
 }
+
+#mathquill-input {
+  min-width: 200px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 500px;
+  border-color: #fafafa;
+}
+#mathquill-input * {
+  color: #fafafa;
+  border-color: #fafafa;
+}
+#mathquill-input:focus {
+  outline: 1px solid #fafafa;
+}
+
+.dropdown-menu li {
+  cursor: pointer !important;
+}
+.equation-input-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+span a {
+  text-decoration: none !important;
+}
+
+.mq-focused {
+  box-shadow: 0 0 0 0.25rem rgb(120, 0, 120) !important;
+  border-color: rgb(120, 0, 120) !important;
+}

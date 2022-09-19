@@ -8,9 +8,7 @@ const plot = (equation, interval, n) => {
   if (chartStatus2 != undefined) chartStatus2.destroy();
 
   const eqParsed = math.parse(equation);
-  console.log(eqParsed.toTex());
   const eq = (x) => eqParsed.evaluate({ x });
-  // console.log(eq(3));
 
   const labels = Array.from({ length: interval[1] - interval[0] + 1 }, (_, i) => i + interval[0]);
 
@@ -59,7 +57,7 @@ const plot = (equation, interval, n) => {
     options: {
       elements: {
         line: {
-          tension: 0.3,
+          tension: 0.4,
         },
       },
       scales: {

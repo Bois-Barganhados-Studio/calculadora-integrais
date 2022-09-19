@@ -34,7 +34,7 @@
     <script src="https://kit.fontawesome.com/c8241fa378.js" crossorigin="anonymous"></script>
 
     <!-- JS -->
-    <script src="script.js" type="module" defer></script>
+    <script src="script.js?=123" type="module" defer></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
@@ -43,8 +43,8 @@
     <div class="container">
       <div class="row py-5">
         <div class="col-12 d-flex justify-content-center">
-          <nav class="navbar navbar-light bg-dark">
-            <a class="navbar-brand" href="#"> Calculadora de Integrais </a>
+          <nav class="navbar navbar-light bg-dark text-light">
+            <a class="navbar-brand" href="#"><i class="text-fluid fa-solid fa-calculator fa-md"> Calculadora de Integrais</i></a>
           </nav>
         </div>
       </div>
@@ -72,7 +72,8 @@
               </div>
               <div class="equation-input-function">
                 <div class="equation-input-function-wrapper">
-                  <input class="form-control bg-dark text-white" type="text" />
+                  <!-- <input class="form-control bg-dark text-white" type="text" /> -->
+                  <div id="mathquill-input"></div>
                   <div class="equation-input-operators">
                     <div class="dropdown me-1">
                       <button
@@ -89,55 +90,56 @@
                         class="dropdown-menu bg-secondary text-dark text-center justify-content-center"
                         aria-labelledby="dropdownMenu"
                       >
-                        <li>
-                          <a class="dropdown-item"
-                            ><i class="fa-solid fa-square-root-variable fa-xl"></i
-                          ></a>
+                        <li id="POW">
+                          <a class="dropdown-item">
+                            <img class="img-fluid" style="width: 25px; height: auto;" src="src/powImg.svg" alt="Pow-2">
+                          </a>
                         </li>
-                        <li>
-                          <a class="dropdown-item"><strong>X²</strong></a>
+                        <li id="SQRT">
+                          <a class="dropdown-item"><i class="fa-solid fa-square-root-variable fa-xl"></i
+                            ></a>
                         </li>
-                        <li>
+                        <li id="SEN">
                           <a class="dropdown-item">
                             <strong>SEN</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="COS">
                           <a class="dropdown-item">
                             <strong>COS</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="PI">
                           <a class="dropdown-item">
-                            <strong>PI</strong>
+                            <strong><h4>π</h4></strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="TAN">
                           <a class="dropdown-item">
                             <strong>TAN</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="SEC">
                           <a class="dropdown-item">
                             <strong>SEC</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="COSSEC">
                           <a class="dropdown-item">
                             <strong>COSSEC</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="LN">
                           <a class="dropdown-item">
                             <strong>LN(x)</strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="E">
                           <a class="dropdown-item">
-                            <strong>e</strong>
+                            <strong><h4>e</h4></strong>
                           </a>
                         </li>
-                        <li>
+                        <li id="LOG">
                           <a class="dropdown-item">
                             <strong>LOG(x)</strong>
                           </a>
@@ -146,6 +148,12 @@
                     </div>
                   </div>
                 </div>
+
+              </div>
+              <div class="equation-input-result">
+                <span id="equation-input-result-text">
+                  dx \approx
+                </span>
               </div>
             </div>
           </div>
@@ -162,5 +170,14 @@
         </div>
       </div>
     </div>
+  </div>
+  <footer class="footer fixed-bottom py-5 bg-dark">
+    <div class="container my-auto">
+        <div class="copyright text-center text-white my-auto">
+            <span>&copy; Todos os direitos reservados. Desenvolvido por 
+              <a class="text-white" href="https://github.com/lexizz7" target="_blank"><strong>Edmar Oliveira</strong></a>, <a class="text-white" href="https://github.com/leon-junio" target="_blank"><strong>Leon Jr Martins</strong></a>, <a class="text-white" href="https://github.com/vinicius-santos-programmer" target="_blank"><strong>Vinícius Augusto</strong></a>, <a class="text-white" href="https://github.com/ravixr" target="_blank"><strong>DJ Khaled</strong></a> - 2022</span>
+        </div>
+    </div>
+  </footer>
   </body>
 </html>
