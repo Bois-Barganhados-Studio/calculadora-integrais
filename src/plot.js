@@ -8,11 +8,17 @@ const plot = (equation, interval, n) => {
   if (chartStatus2 != undefined) chartStatus2.destroy();
 
   const eqParsed = math.parse(equation);
+  console.log(eqParsed.toTex());
   const eq = (x) => eqParsed.evaluate({ x });
+  // console.log(eq(3));
 
   const labels = Array.from({ length: interval[1] - interval[0] + 1 }, (_, i) => i + interval[0]);
 
-  const values = labels.map((x) => eq(x));
+  const values = labels.map((x) => {
+    const result = eq(x);
+
+    return result.re !== undefined ? result.re : result;
+  });
   const minorThanZero = values.some((x) => x < 0);
 
   const data = {
@@ -20,9 +26,10 @@ const plot = (equation, interval, n) => {
     datasets: [
       {
         label: `f(x) = ${equation}`,
-        borderColor: "rgba(75, 192, 192, 1)",
+        borderColor: "#800080",
+        backgroundColor: "rgba(128, 0, 128, 0.15)",
         data: values,
-        fill: false,
+        fill: true,
         yAxisID: "y",
         xAxisID: "x",
         type: "line",
@@ -30,8 +37,8 @@ const plot = (equation, interval, n) => {
     ],
   };
 
-  const fitBars = {
-    id: "fitBars",
+  const drawBars = {
+    id: "drawBars",
     afterDatasetsDraw: (chart) => {
       const { ctx, data } = chart;
       ctx.save();
@@ -61,6 +68,11 @@ const plot = (equation, interval, n) => {
           beginAtZero: true,
           ticks: {
             beginAtZero: true,
+            color: "rgba(255,255,255,0.5)",
+          },
+          grid: {
+            color: "rgba(255,255,255,0.1)",
+            borderColor: "rgba(255,255,255,0.5)",
           },
           position: !minorThanZero
             ? "bottom"
@@ -73,6 +85,11 @@ const plot = (equation, interval, n) => {
           beginAtZero: true,
           ticks: {
             beginAtZero: true,
+            color: "rgba(255,255,255,0.5)",
+          },
+          grid: {
+            color: "rgba(255,255,255,0.1)",
+            borderColor: "rgba(255,255,255,0.5)",
           },
           position:
             interval[0] > 0
@@ -90,56 +107,56 @@ const plot = (equation, interval, n) => {
         },
       },
     },
-    plugins: [fitBars],
+    plugins: [drawBars],
   });
 
-  const labels2 = Array.from({ length: n }, (_, i) => i);
-  const values2 = labels2.map((x) => {
-    const distance = interval[1] - interval[0];
-    const width = distance / n;
-    const value = labels[0] + width * (x + 1);
-    console.log(value, eq(value));
-    return eq(value);
-  });
+  // const labels2 = Array.from({ length: n }, (_, i) => i);
+  // const values2 = labels2.map((x) => {
+  //   const distance = interval[1] - interval[0];
+  //   const width = distance / n;
+  //   const value = labels[0] + width * (x + 1);
+  //   console.log(value, eq(value));
+  //   return eq(value);
+  // });
 
-  const data2 = {
-    labels: labels2,
-    datasets: [
-      {
-        borderColor: "rgba(75, 192, 192, 1)",
-        data: values2,
-        barPercentage: 1.0,
-        categoryPercentage: 1.0,
-      },
-    ],
-  };
+  // const data2 = {
+  //   labels: labels2,
+  //   datasets: [
+  //     {
+  //       borderColor: "rgba(75, 192, 192, 1)",
+  //       data: values2,
+  //       barPercentage: 1.0,
+  //       categoryPercentage: 1.0,
+  //     },
+  //   ],
+  // };
 
-  const graph2 = new Chart(canvas2, {
-    type: "bar",
-    data: data2,
-    options: {
-      scales: {
-        x: {
-          display: false,
-          grid: {
-            display: false,
-          },
-        },
+  // const graph2 = new Chart(canvas2, {
+  //   type: "bar",
+  //   data: data2,
+  //   options: {
+  //     scales: {
+  //       x: {
+  //         display: false,
+  //         grid: {
+  //           display: false,
+  //         },
+  //       },
 
-        y: {
-          display: false,
-          grid: {
-            display: false,
-          },
-        },
-      },
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-    },
-  });
+  //       y: {
+  //         display: false,
+  //         grid: {
+  //           display: false,
+  //         },
+  //       },
+  //     },
+  //     plugins: {
+  //       legend: {
+  //         display: false,
+  //       },
+  //     },
+  //   },
+  // });
 };
 
 export default plot;

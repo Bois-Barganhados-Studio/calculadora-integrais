@@ -1,10 +1,18 @@
+body {
+  background-color: #212121;
+  color: #fafafa !important;
+}
+* {
+  color: #fafafa !important;
+  transition: all 0.2s ease;
+}
+
 #chart {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  max-width: 500px;
 }
 
 #chart #graph-bar {
@@ -12,4 +20,60 @@
   opacity: 0;
   pointer-events: none;
   z-index: -1;
+}
+
+.equation-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.equation-input-interval {
+  display: flex;
+  gap: 4px;
+}
+.equation-input-interval label {
+  font-size: 200px;
+  line-height: 200px;
+  transform: translateY(-30px);
+}
+.equation-input-interval-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.equation-input-interval-inputs input {
+  width: 100px;
+  border-radius: 500px;
+}
+
+.equation-input-function {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.equation-input-function input {
+  border-radius: 500px;
+}
+.equation-input-function-wrapper {
+  position: relative;
+}
+.equation-input-function .equation-input-operators {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+}
+
+#n-slider {
+  width: 100%;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.btn {
+  border-radius: 500px;
 }
