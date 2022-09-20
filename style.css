@@ -108,6 +108,7 @@ body {
 }
 .equation-input-interval-inputs-input .btn {
   border-radius: 0 500px 500px 0;
+  top:30px;
 }
 span a {
   text-decoration: none !important;
