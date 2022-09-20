@@ -8,6 +8,11 @@ const resultText = document.getElementById("equation-input-result-text");
 const staticValue = MQ.StaticMath(resultText);
 const mathquillInput = document.getElementById("mathquill-input");
 
+const piButtonInf = document.getElementById("btn-check-p-1");
+const piButtonSup = document.getElementById("btn-check-p-2");
+const expoButtonInf = document.getElementById("btn-check-e-1");
+const expoButtonSup = document.getElementById("btn-check-e-2");
+
 const interval0Input = document.getElementById("interval0");
 const interval1Input = document.getElementById("interval1");
 const nSlider = document.getElementById("n-slider");
@@ -20,7 +25,9 @@ const mathField = MQ.MathField(mathquillInput, {
       if (plotted) {
         const result = riemann(
           replaceOperations(mathField.text()),
-          [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
+          [parseFloat(piButtonInf.checked ? interval0Input.value * Math.PI : expoButtonInf.checked ?
+            interval0Input.value * Math.E : interval0Input.value), parseFloat(piButtonSup.checked ? interval1Input.value * Math.PI : expoButtonSup.checked ?
+              interval1Input.value * Math.E : interval1Input.value)],
           nSlider.value
         );
         if (result) staticValue.latex(`dx \\approx ${result.toFixed(3)}`);
