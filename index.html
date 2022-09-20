@@ -1,195 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <!-- Meta -->
+    <title>Calculadora de Integrais</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <!-- Meta -->
-  <title>Calculadora de Integrais</title>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Dependencies -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- MathQuill -->
+    <link rel="stylesheet" href="src/mathquill-0.10.1/mathquill.css" />
+    <script src="src/mathquill-0.10.1/mathquill.js"></script>
+    <!-- MathJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.js"></script>
+    <!-- MathLatexParser -->
+    <script src="https://cdn.jsdelivr.net/npm/@scicave/math-latex-parser/lib/bundle.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.2.1-dist/css/bootstrap.min.css" />
+    <script src="bootstrap/bootstrap-5.2.1-dist/js/bootstrap.bundle.js"></script>
+    <!-- MathJax -->
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- FontAwesome -->
+    <link rel=" stylesheet " href=" https://use.fontawesome.com/releases/v6.1.2/css/all.css" />
+    <script src="https://kit.fontawesome.com/c8241fa378.js" crossorigin="anonymous"></script>
 
-  <!-- Dependencies -->
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <!-- MathQuill -->
-  <link rel="stylesheet" href="src/mathquill-0.10.1/mathquill.css" />
-  <script src="src/mathquill-0.10.1/mathquill.js"></script>
-  <!-- MathJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.js"></script>
-  <!-- MathLatexParser -->
-  <script src="https://cdn.jsdelivr.net/npm/@scicave/math-latex-parser/lib/bundle.js"></script>
-  <!-- ChartJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="bootstrap/bootstrap-5.2.1-dist/css/bootstrap.min.css" />
-  <script src="bootstrap/bootstrap-5.2.1-dist/js/bootstrap.bundle.js"></script>
-  <!-- MathJax -->
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <!-- FontAwesome -->
-  <link rel=" stylesheet " href=" https://use.fontawesome.com/releases/v6.1.2/css/all.css" />
-  <script src="https://kit.fontawesome.com/c8241fa378.js" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="script.js?=123" type="module" defer></script>
 
-  <!-- JS -->
-  <script src="script.js?=123" type="module" defer></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body class="bg-dark">
-  <div class="container">
-    <div class="row py-5">
-      <div class="col-12 d-flex justify-content-center">
-        <nav class="navbar navbar-light bg-dark text-light">
-          <a class="navbar-brand" href="#"><i class="text-fluid fa-solid fa-calculator fa-md"> Calculadora de
-              Integrais</i></a>
-        </nav>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="row py-5">
+        <div class="col-12 d-flex justify-content-center">
+          <nav class="navbar navbar-light bg-dark text-light">
+            <a class="navbar-brand" href="#"
+              ><i class="text-fluid fa-solid fa-calculator fa-md"> Calculadora de Integrais</i></a
+            >
+          </nav>
+        </div>
       </div>
-    </div>
-    <div class="row gy-5">
-      <div class="col-lg-6 col-12">
-        <div class="form-row equation-input">
-          <div class="form-group equation-input-interval">
-            <label class="bg-outline-light">∫</label>
-            <div class="equation-input-interval-inputs">
-              <div class="equation-input-interval-inputs-input">
-                <input class="form-control bg-dark text-white" type="number" name="interval1" id="interval1"
-                  value="5" />
-                <div class="btn-group btn-group-toggle" role="group" aria-label="buttons">
-                  <input type="checkbox" id="btn-check-p-2" class="btn-check">
-                  <label class="btn  btn-outline-light" for="btn-check-p-2"> <strong>
-                      <h5>π</h5>
-                    </strong></label>
-                  <input type="checkbox" id="btn-check-e-2" class="btn-check btn-outline-light">
-                  <label class="btn  btn-outline-light" for="btn-check-e-2"> <strong>
-                      <h5>e</h5>
-                    </strong></label>
+      <div class="row gy-5 align-items-center">
+        <div class="col-lg-6 col-12">
+          <i class="title text-fluid fa-solid fa-keyboard fa-md"> Entrada</i>
+          <div class="form-row equation-input">
+            <div class="form-group equation-input-interval">
+              <label class="bg-outline-light">∫</label>
+              <div class="equation-input-interval-inputs">
+                <div class="equation-input-interval-inputs-input">
+                  <input
+                    class="form-control bg-dark text-white"
+                    type="number"
+                    name="interval1"
+                    id="interval1"
+                    value="5"
+                  />
+                  <div class="btn-group btn-group-toggle" role="group" aria-label="buttons">
+                    <input type="checkbox" id="btn-check-p-2" class="btn-check" />
+                    <label class="btn btn-outline-light" for="btn-check-p-2">
+                      <strong>
+                        <h5>π</h5>
+                      </strong></label
+                    >
+                    <input type="checkbox" id="btn-check-e-2" class="btn-check btn-outline-light" />
+                    <label class="btn btn-outline-light" for="btn-check-e-2">
+                      <strong>
+                        <h5>e</h5>
+                      </strong></label
+                    >
+                  </div>
                 </div>
-              </div>
-              <div class="grow"></div>
-              <div class="equation-input-interval-inputs-input">
-                <input class="form-control bg-dark text-white" type="number" name="interval0" id="interval0"
-                  value="-5" />
-                <div class="btn-group btn-group-toggle" role="group" aria-label="buttons">
-                  <input type="checkbox" id="btn-check-p-1" class="btn-check">
-                  <label class="btn  btn-outline-light" for="btn-check-p-1"> <strong>
-                      <h5>π</h5>
-                    </strong></label>
-                  <input type="checkbox" id="btn-check-e-1" class="btn-check btn-outline-light">
-                  <label class="btn  btn-outline-light" for="btn-check-e-1"> <strong>
-                      <h5>e</h5>
-                    </strong></label>
-                </div>
-              </div>
-            </div>
-            <div class="equation-input-function">
-              <div class="equation-input-function-wrapper">
-                <!-- <input class="form-control bg-dark text-white" type="text" /> -->
-                <div id="mathquill-input"></div>
-                <div class="equation-input-operators">
-                  <div class="dropdown me-1">
-                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenu"
-                      data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-                      Operações
-                    </button>
-                    <ul class="dropdown-menu bg-secondary text-dark text-center justify-content-center"
-                      aria-labelledby="dropdownMenu">
-                      <li id="POW">
-                        <a class="dropdown-item">
-                          <img class="img-fluid" style="width: 25px; height: auto;" src="src/powImg.svg" alt="Pow-2">
-                        </a>
-                      </li>
-                      <li id="SQRT">
-                        <a class="dropdown-item"><i class="fa-solid fa-square-root-variable fa-xl"></i></a>
-                      </li>
-                      <li id="SEN">
-                        <a class="dropdown-item">
-                          <strong>SEN</strong>
-                        </a>
-                      </li>
-                      <li id="COS">
-                        <a class="dropdown-item">
-                          <strong>COS</strong>
-                        </a>
-                      </li>
-                      <li id="PI">
-                        <a class="dropdown-item">
-                          <strong>
-                            <h4>π</h4>
-                          </strong>
-                        </a>
-                      </li>
-                      <li id="TAN">
-                        <a class="dropdown-item">
-                          <strong>TAN</strong>
-                        </a>
-                      </li>
-                      <li id="SEC">
-                        <a class="dropdown-item">
-                          <strong>SEC</strong>
-                        </a>
-                      </li>
-                      <li id="COSSEC">
-                        <a class="dropdown-item">
-                          <strong>COSSEC</strong>
-                        </a>
-                      </li>
-                      <li id="LN">
-                        <a class="dropdown-item">
-                          <strong>LN(x)</strong>
-                        </a>
-                      </li>
-                      <li id="E">
-                        <a class="dropdown-item">
-                          <strong>
-                            <h4>e</h4>
-                          </strong>
-                        </a>
-                      </li>
-                      <li id="LOG">
-                        <a class="dropdown-item">
-                          <strong>LOG(x)</strong>
-                        </a>
-                      </li>
-                    </ul>
+                <div class="grow"></div>
+                <div class="equation-input-interval-inputs-input bottom">
+                  <input
+                    class="form-control bg-dark text-white"
+                    type="number"
+                    name="interval0"
+                    id="interval0"
+                    value="-5"
+                  />
+                  <div class="btn-group btn-group-toggle" role="group" aria-label="buttons">
+                    <input type="checkbox" id="btn-check-p-1" class="btn-check" />
+                    <label class="btn btn-outline-light" for="btn-check-p-1">
+                      <strong>
+                        <h5>π</h5>
+                      </strong></label
+                    >
+                    <input type="checkbox" id="btn-check-e-1" class="btn-check btn-outline-light" />
+                    <label class="btn btn-outline-light" for="btn-check-e-1">
+                      <strong>
+                        <h5>e</h5>
+                      </strong></label
+                    >
                   </div>
                 </div>
               </div>
-
-            </div>
-            <div class="equation-input-result">
-              <span id="equation-input-result-text">
-                dx \approx
-              </span>
+              <div class="equation-input-function">
+                <div class="equation-input-function-wrapper">
+                  <div id="mathquill-input"></div>
+                  <div class="equation-input-operators">
+                    <div class="dropdown me-1">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary dropdown-toggle"
+                        id="dropdownMenu"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="10,20"
+                      >
+                        Operações
+                      </button>
+                      <ul
+                        class="dropdown-menu bg-secondary text-dark text-center justify-content-center"
+                        aria-labelledby="dropdownMenu"
+                      >
+                        <li id="POW">
+                          <a class="dropdown-item">
+                            <img
+                              class="img-fluid"
+                              style="width: 25px; height: auto"
+                              src="src/powImg.svg"
+                              alt="Pow-2"
+                            />
+                          </a>
+                        </li>
+                        <li id="SQRT">
+                          <a class="dropdown-item"
+                            ><i class="fa-solid fa-square-root-variable fa-xl"></i
+                          ></a>
+                        </li>
+                        <li id="PI">
+                          <a class="dropdown-item">
+                            <strong>
+                              <h4>π</h4>
+                            </strong>
+                          </a>
+                        </li>
+                        <li id="e">
+                          <a class="dropdown-item">
+                            <strong>
+                              <h4>e</h4>
+                            </strong>
+                          </a>
+                        </li>
+                        <li id="SIN">
+                          <a class="dropdown-item">
+                            <strong>sin(x)</strong>
+                          </a>
+                        </li>
+                        <li id="COS">
+                          <a class="dropdown-item">
+                            <strong>cos(x)</strong>
+                          </a>
+                        </li>
+                        <li id="TAN">
+                          <a class="dropdown-item">
+                            <strong>tan(x)</strong>
+                          </a>
+                        </li>
+                        <li id="SEC">
+                          <a class="dropdown-item">
+                            <strong>sec(x)</strong>
+                          </a>
+                        </li>
+                        <li id="COSSEC">
+                          <a class="dropdown-item">
+                            <strong>cossec(x)</strong>
+                          </a>
+                        </li>
+                        <li id="LOG">
+                          <a class="dropdown-item">
+                            <strong>log(x)</strong>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="equation-input-result">
+                <span id="equation-input-result-text"> dx \approx </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 col-12">
-        <div id="chart">
-          <canvas id="graph-line"></canvas>
-          <canvas id="graph-bar"></canvas>
-        </div>
-        <label class="form-label n-slider-label" for="n-slider">Valor do N: <span></span></label>
-        <div>
-          <input class="form-range" type="range" min="1" max="1000" id="n-slider" value="500" />
+        <div class="col-lg-6 col-12">
+          <i class="title fa-solid fa-chart-line"> Grafico</i>
+          <div id="chart">
+            <canvas id="graph-line"></canvas>
+            <canvas id="graph-bar"></canvas>
+          </div>
+          <i class="title fa-solid fa-gear"> Opcoes</i>
+          <div class="option-item">
+            <label class="form-label n-slider-label" for="n-slider"
+              ><i class="fa-solid fa-sliders"></i> Valor de N: <span></span
+            ></label>
+            <span> Aumenta a precisão </span>
+            <input class="form-range" type="range" min="1" max="5000" id="n-slider" value="500" step="200" />
+          </div>
+          <div class="option-item">
+            <label class="form-label step-slider-label" for="step-slider"
+              ><i class="fa-solid fa-stairs"></i></i> Tamanho do passo: <span></span
+            ></label>
+            <span> Valor de incremento no eixo X (apenas visual)</span>
+            <input class="form-range" type="range" min="0.2" max="10" id="step-slider" value="1" step="0.2" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <footer class="footer fixed-bottom py-5 bg-dark">
-    <div class="container my-auto">
-      <div class="copyright text-center text-white my-auto">
-        <span>&copy; Todos os direitos reservados. Desenvolvido por
-          <a class="text-white" href="https://github.com/lexizz7" target="_blank"><strong>Edmar Oliveira</strong></a>,
-          <a class="text-white" href="https://github.com/leon-junio" target="_blank"><strong>Leon Jr
-              Martins</strong></a>, <a class="text-white" href="https://github.com/vinicius-santos-programmer"
-            target="_blank"><strong>Vinícius Augusto</strong></a>, <a class="text-white"
-            href="https://github.com/ravixr" target="_blank"><strong>Vinicius Gabriel</strong></a> - 2022</span>
+    <footer class="footer fixed-bottom py-5 bg-dark">
+      <div class="container my-auto">
+        <div class="copyright text-center text-white my-auto">
+          <span
+            >&copy; Todos os direitos reservados. Desenvolvido por
+            <a class="text-white" href="https://github.com/lexizz7" target="_blank"
+              ><strong>Edmar Oliveira</strong></a
+            >,
+            <a class="text-white" href="https://github.com/leon-junio" target="_blank"
+              ><strong>Leon Jr Martins</strong></a
+            >,
+            <a
+              class="text-white"
+              href="https://github.com/vinicius-santos-programmer"
+              target="_blank"
+              ><strong>Vinícius Augusto</strong></a
+            >,
+            <a class="text-white" href="https://github.com/ravixr" target="_blank"
+              ><strong>Vinicius Gabriel</strong></a
+            >
+            - 2022</span
+          >
+        </div>
       </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

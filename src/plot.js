@@ -1,4 +1,4 @@
-const plot = (equation, interval, n) => {
+const plot = (equation, interval, n, stepSize = 1) => {
   const canvas = document.getElementById("graph-line");
   const chartStatus = Chart.getChart("graph-line");
   if (chartStatus != undefined) chartStatus.destroy();
@@ -10,7 +10,9 @@ const plot = (equation, interval, n) => {
   const eqParsed = math.parse(equation);
   const eq = (x) => eqParsed.evaluate({ x });
 
-  const labels = Array.from({ length: interval[1] - interval[0] + 1 }, (_, i) => i + interval[0]);
+  const labels = Array.from({ length: (interval[1] - interval[0] + stepSize) / stepSize }, (_, i) =>
+    parseFloat((i * stepSize + interval[0]).toFixed(3))
+  );
 
   const values = labels.map((x) => {
     const result = eq(x);
@@ -95,7 +97,7 @@ const plot = (equation, interval, n) => {
               : interval[1] < 0
               ? "right"
               : {
-                  x: interval[0] * -1,
+                  x: (interval[0] * -1) / stepSize,
                 },
         },
       },

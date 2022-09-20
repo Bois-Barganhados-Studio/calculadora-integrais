@@ -1,6 +1,7 @@
 body {
   background-color: #212121;
   color: #fafafa !important;
+  padding-bottom: 10rem;
 }
 * {
   color: #fafafa !important;
@@ -31,10 +32,11 @@ body {
   display: flex;
   gap: 4px;
 }
-.equation-input-interval label {
+.equation-input-interval > label {
   font-size: 200px;
   line-height: 200px;
-  transform: translateY(-30px);
+  margin-right: 4px;
+  font-family: Symbola, "Times New Roman", serif;
 }
 .equation-input-interval-inputs {
   display: flex;
@@ -43,10 +45,27 @@ body {
   justify-content: center;
 }
 .equation-input-interval-inputs input {
-  width: 100px;
+  width: 80px;
   border-radius: 500px 0 0 500px;
 }
-
+.dropdown-menu.show {
+  display: grid !important;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  background-color: rgb(90, 0, 90) !important;
+}
+.dropdown-menu li a {
+  border-radius: 8px;
+}
+.btn.show {
+  background-color: rgba(120, 0, 120, 0.6);
+}
+.btn:hover,
+.btn:first-child:hover {
+  background-color: rgba(120, 0, 120, 0.3);
+}
 .equation-input-function {
   min-height: 100%;
   display: flex;
@@ -102,13 +121,34 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.option-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.option-item label {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.option-item > span {
+  font-size: 1em;
+  color: #aaa !important;
+}
 .equation-input-interval-inputs-input {
   position: relative;
   display: flex;
 }
 .equation-input-interval-inputs-input .btn {
   border-radius: 0 500px 500px 0;
-  top:30px;
+}
+.equation-input-interval-inputs-input.bottom {
+  transform: translateX(-40px);
 }
 span a {
   text-decoration: none !important;

@@ -23,8 +23,8 @@ const replaceOperations = (string) => {
     if (result.includes("\\s*e*c *")) {
       result = result.replaceAll("\\s*e*c *", "sec");
     }
-    if (result.includes("\\l*n *")) {
-      result = result.replaceAll("\\l*n *", "ln");
+    if (result.includes("\\c*s*c *")) {
+      result = result.replaceAll("\\c*s*c *", "csc");
     }
     result += string[i];
   }
