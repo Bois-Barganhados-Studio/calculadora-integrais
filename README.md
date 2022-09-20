@@ -1,4 +1,4 @@
-# Calculadora de integrais PUC
+# Calculadora de integrais - Cálculo 2 PUC-Minas Praça da Liberdade
 
 ### Sistema para realizar o cálculo de integrais usando o metódo da soma de Riemann
 
