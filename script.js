@@ -44,13 +44,17 @@ const plotGraph = () => {
 
   const graphObject = {
     equation,
-    interval: [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
+    interval: [parseFloat(piButtonInf.checked ? interval0Input.value * Math.PI : expoButtonInf.checked ?
+      interval0Input.value * Math.E : interval0Input.value), parseFloat(piButtonSup.checked ? interval1Input.value * Math.PI : expoButtonSup.checked ?
+        interval1Input.value * Math.E : interval1Input.value)],
     n: nSlider.value,
   };
   if (JSON.stringify(graphObject) == JSON.stringify(lastGraph)) return;
   plot(
     equation,
-    [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
+    [parseFloat(piButtonInf.checked ? interval0Input.value * Math.PI : expoButtonInf.checked ?
+      interval0Input.value * Math.E : interval0Input.value), parseFloat(piButtonSup.checked ? interval1Input.value * Math.PI : expoButtonSup.checked ?
+        interval1Input.value * Math.E : interval1Input.value)],
     nSlider.value
   );
   lastGraph = graphObject;
