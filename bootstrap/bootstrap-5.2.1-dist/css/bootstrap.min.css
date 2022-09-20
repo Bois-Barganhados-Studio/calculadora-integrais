@@ -1918,7 +1918,7 @@ progress {
   opacity: 1;
 }
 .form-control:disabled {
-  background-color: #e9ecef;
+  background-color: #ec8ff8;
   opacity: 1;
 }
 .form-control::-webkit-file-upload-button {

@@ -44,7 +44,7 @@ body {
 }
 .equation-input-interval-inputs input {
   width: 100px;
-  border-radius: 500px;
+  border-radius: 500px 0 0 500px;
 }
 
 .equation-input-function {
@@ -101,6 +101,13 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.equation-input-interval-inputs-input {
+  position: relative;
+  display: flex;
+}
+.equation-input-interval-inputs-input .btn {
+  border-radius: 0 500px 500px 0;
 }
 span a {
   text-decoration: none !important;

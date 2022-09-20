@@ -20,7 +20,7 @@ const mathField = MQ.MathField(mathquillInput, {
       if (plotted) {
         const result = riemann(
           replaceOperations(mathField.text()),
-          [parseInt(interval0Input.value), parseInt(interval1Input.value)],
+          [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
           nSlider.value
         );
         if (result) staticValue.latex(`dx \\approx ${result.toFixed(3)}`);
@@ -37,11 +37,15 @@ const plotGraph = () => {
 
   const graphObject = {
     equation,
-    interval: [parseInt(interval0Input.value), parseInt(interval1Input.value)],
+    interval: [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
     n: nSlider.value,
   };
   if (JSON.stringify(graphObject) == JSON.stringify(lastGraph)) return;
-  plot(equation, [parseInt(interval0Input.value), parseInt(interval1Input.value)], nSlider.value);
+  plot(
+    equation,
+    [parseFloat(interval0Input.value), parseFloat(interval1Input.value)],
+    nSlider.value
+  );
   lastGraph = graphObject;
 
   return true;
