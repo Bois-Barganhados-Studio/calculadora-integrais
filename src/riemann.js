@@ -9,11 +9,6 @@ const riemann = (equation, interval, n) => {
   const eqParsed = math.parse(equation);
   const eq = (x) => eqParsed.evaluate({ x });
 
-  //   if (interval[0] < 0) {
-  //     let eq1 = riemann(equation, [interval[0], 0], n);
-  //     let eq2 = riemann(equation, [0, interval[1]], n);
-  //   }
-
   let distance = interval[1] - interval[0];
 
   let sum = 0;
@@ -24,7 +19,8 @@ const riemann = (equation, interval, n) => {
   for (let i = 0; i < n; i++) {
     width = distance / n;
     x = interval[0] + width * i;
-    height = eq(x);
+    height = eq(x).re !== undefined ? eq(x).re : eq(x);
+    console.log(height);
     sum += rectArea(width, height);
   }
   return sum;
