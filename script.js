@@ -2,6 +2,9 @@ import plot from "./src/plot.js";
 import riemann from "./src/riemann.js";
 import replaceOperations from "./src/replaceOperations.js";
 
+//Script principal para responsável por pegar os dados inseridos e enviar para
+//os outros scripts fazerem as contas e plotar o gráfico
+
 const MQ = MathQuill.getInterface(2);
 
 const resultText = document.getElementById("equation-input-result-text");
@@ -152,27 +155,3 @@ function writeExp(exp) {
   }
 }
 
-// INPUT MATHQUILL
-
-// const MQ = MathQuill.getInterface(2);
-
-// const input = document.getElementById("input");
-// const inputWrapper = document.getElementById("input-wrapper");
-// const MQinputWrapper = MQ.StaticMath(inputWrapper);
-
-// const mathField = MQ.MathField(input, {
-//   handlers: {
-//     edit: () => {
-//       const latex = mathField.latex();
-//       console.log(parseEquation(latex));
-//       // console.log(text);
-//       // const letters = text.match(/[a-zA-Z]/g);
-
-//       // if (letters && letters.length > 1) {
-//       //   mathField.keystroke("Backspace");
-//       // } else {
-//       //   MQinputWrapper.latex(letters ? `f(${letters[0]})=` : "f(x)=");
-//       // }
-//     },
-//   },
-// });

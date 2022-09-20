@@ -158,3 +158,10 @@ span a {
   box-shadow: 0 0 0 0.25rem rgb(120, 0, 120) !important;
   border-color: rgb(120, 0, 120) !important;
 }
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}

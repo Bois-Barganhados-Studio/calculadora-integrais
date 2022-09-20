@@ -1,3 +1,5 @@
+//Script que realiza o cálculo da soma de riemann utlizando um laço de repetição e um intervalo/n definido pelo usuário
+
 const rectArea = (b, a) => {
   return b * a;
 };

@@ -1,3 +1,5 @@
+//Script responsável por atualizar os dados dentro dos campos de intervalo quando uma operação é escolhida
+
 const replaceOperations = (string) => {
   let result = "";
 

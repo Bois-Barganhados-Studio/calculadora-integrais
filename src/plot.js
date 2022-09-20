@@ -1,3 +1,5 @@
+//Script para plotar o gráfico usando JavaScript
+
 const plot = (equation, interval, n, stepSize = 1) => {
   const canvas = document.getElementById("graph-line");
   const chartStatus = Chart.getChart("graph-line");
