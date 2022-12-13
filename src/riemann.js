@@ -1,3 +1,4 @@
+//@author Leon Jr e Edmar Oliveira
 //Script que realiza o cálculo da soma de riemann utlizando um laço de repetição e um intervalo/n definido pelo usuário
 
 const rectArea = (b, a) => {
@@ -22,7 +23,6 @@ const riemann = (equation, interval, n) => {
     width = distance / n;
     x = interval[0] + width * i;
     height = eq(x).re !== undefined ? eq(x).re : eq(x);
-    console.log(height);
     sum += rectArea(width, height);
   }
   return sum;
